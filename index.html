@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elena Voss · entrepreneurial portfolio</title>
+  <!-- SEO meta -->
+  <meta name="description" content="Elena Voss – entrepreneur & innovator. Explore projects, case studies & interactive brand story. Let’s build the next big thing.">
+  <meta name="keywords" content entrepreneur, portfolio, innovation, case studies, interactive, branding, Elena Voss>
+  <meta name="author" content="Elena Voss">
+  <!-- modern font system: Inter + Fraunces for elegance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet">
+  <!-- Font awesome 6 (free) for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-light: #f8f6f2;        /* soft off-white */
+      --bg-dark: #0f1722;          /* deep ink */
+      --sand: #e5ddd3;
+      --accent: #b26b4b;           /* warm terracotta */
+      --accent-light: #d9997a;
+      --text-dark: #1e1e24;
+      --text-light: #eae8e0;
+      --gray-mid: #706f7a;
+      --font-serif: "Fraunces", serif;
+      --font-sans: "Inter", sans-serif;
+      --transition: all 0.25s cubic-bezier(0.2, 0.9, 0.3, 1);
+      --shadow: 0 20px 35px -10px rgba(0,0,0,0.15);
+    }
+
+    body {
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      font-family: var(--font-sans);
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    /* high‑end split screen navigation / header */
+    .split-header {
+      display: flex;
+      min-height: 95vh;
+      flex-wrap: wrap;
+    }
+
+    .brand-panel {
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      flex: 1 1 40%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 2.5rem 2.5rem 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .brand-panel::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 80% 30%, rgba(178, 107, 75, 0.1) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .intro-panel {
+      background: var(--sand);
+      flex: 1 1 60%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 3rem 4rem;
+      position: relative;
+    }
+
+    .logo {
+      font-family: var(--font-serif);
+      font-weight: 500;
+      font-size: 1.8rem;
+      letter-spacing: -0.02em;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+      padding-bottom: 1rem;
+      width: fit-content;
+    }
+    .logo span { color: var(--accent-light); }
+
+    .brand-quote {
+      font-size: clamp(1.8rem, 5vw, 3.8rem);
+      font-family: var(--font-serif);
+      font-weight: 400;
+      line-height: 1.1;
+      max-width: 12ch;
+      margin-top: 2rem;
+    }
+    .brand-quote small {
+      display: block;
+      font-size: 1rem;
+      font-family: var(--font-sans);
+      letter-spacing: 0.3px;
+      margin-top: 1.5rem;
+      color: var(--accent-light);
+      font-weight: 300;
+    }
+
+    .hero-scroll-hint {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--gray-mid);
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      position: absolute;
+      bottom: 4rem;
+      right: 1.5rem;
+    }
+    .hero-scroll-hint i { font-size: 1.2rem; margin-bottom: 0.5rem; }
+
+    /* intro panel */
+    .greeting {
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      letter-spacing: 6px;
+      color: var(--accent);
+      font-weight: 400;
+    }
+    .intro-name {
+      font-size: clamp(2.2rem, 7vw, 4.5rem);
+      font-family: var(--font-serif);
+      font-weight: 500;
+      line-height: 1;
+      margin: 0.5rem 0 1rem;
+    }
+    .intro-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      margin: 2rem 0 2.5rem;
+    }
+    .intro-tags li {
+      background: rgba(178, 107, 75, 0.08);
+      list-style: none;
+      padding: 0.4rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--accent);
+      border: 1px solid transparent;
+      transition: var(--transition);
+    }
+    .intro-tags li:hover {
+      background: transparent;
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+    .cta-button {
+      background: var(--bg-dark);
+      color: white;
+      border: none;
+      padding: 1rem 2.8rem;
+      font-family: var(--font-sans);
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      width: fit-content;
+      text-decoration: none;
+      border: 1.5px solid var(--bg-dark);
+    }
+    .cta-button i { transition: transform 0.2s; }
+    .cta-button:hover {
+      background: transparent;
+      color: var(--bg-dark);
+    }
+    .cta-button:hover i { transform: translateX(6px); }
+
+    /* main container */
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* section headings */
+    .section-head {
+      font-size: 2.2rem;
+      font-family: var(--font-serif);
+      font-weight: 400;
+      margin: 3.5rem 0 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .section-head i { color: var(--accent); font-size: 2rem; }
+
+    /* About me with scrolling storyline */
+    .story-grid {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin: 3rem 0 5rem;
+    }
+    .story-text {
+      flex: 2;
+      min-width: 280px;
+    }
+    .story-highlight {
+      flex: 1.2;
+      background: white;
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      border-radius: 2px;
+    }
+    .scroll-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+      position: relative;
+    }
+    .timeline-item {
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+      border-left: 2px solid var(--accent);
+      padding-left: 1.2rem;
+      transition: transform 0.2s;
+    }
+    .timeline-item:hover { transform: translateX(8px); }
+    .year { 
+      font-weight: 600; 
+      color: var(--accent);
+      min-width: 65px;
+    }
+    .story-highlight h3 { margin-bottom: 1rem; font-family: var(--font-serif); }
+
+    /* skills / services – modern cards */
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px,1fr));
+      gap: 1.8rem;
+      margin: 3rem 0;
+    }
+    .service-card {
+      background: white;
+      padding: 2rem 1rem;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+      border: 1px solid rgba(0,0,0,0.03);
+      transition: var(--transition);
+    }
+    .service-card i {
+      font-size: 2.3rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    .service-card h3 { font-weight: 500; margin-bottom: 0.3rem; }
+    .service-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--accent-light);
+      box-shadow: 0 25px 30px -15px rgba(178,107,75,0.2);
+    }
+
+    /* projects filter + cards */
+    .filter-bar {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin: 2rem 0 2.5rem;
+    }
+    .filter-btn {
+      background: transparent;
+      border: 1px solid var(--gray-mid);
+      padding: 0.5rem 1.5rem;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--bg-dark);
+      border-color: var(--bg-dark);
+      color: white;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+    .project-card {
+      background: white;
+      padding: 1.8rem;
+      border-radius: 2px;
+      transition: var(--transition);
+      box-shadow: 0 5px 20px rgba(0,0,0,0.02);
+      border: 1px solid #eee;
+    }
+    .project-card[data-category] { display: block; }
+    .project-card.hidden { display: none; }
+    .project-card:hover {
+      transform: scale(1.02) translateY(-8px);
+      border-color: var(--accent);
+      box-shadow: var(--shadow);
+    }
+    .project-icon {
+      font-size: 2.2rem;
+      color: var(--accent);
+    }
+    .project-card h3 { font-family: var(--font-serif); margin: 1rem 0 0.5rem; }
+    .project-tag {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      color: var(--gray-mid);
+      letter-spacing: 1px;
+    }
+    .demo-link {
+      display: inline-block;
+      margin-top: 1rem;
+      font-weight: 500;
+      border-bottom: 1px solid transparent;
+    }
+    .demo-link:hover { border-bottom-color: var(--accent); color: var(--accent); }
+
+    /* testimonials */
+    .testimonial-grid {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin: 3rem 0;
+    }
+    .testi-card {
+      background: white;
+      flex: 1 1 260px;
+      padding: 2rem;
+      border-radius: 2px;
+      border-left: 5px solid var(--accent);
+      box-shadow: 0 10px 20px -5px rgba(0,0,0,0.05);
+    }
+    .testi-card i { color: var(--accent); opacity: 0.4; font-size: 2rem; }
+    .testi-card p { font-style: italic; margin: 1rem 0; }
+
+    /* blog optional (insights) */
+    .insight-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0 4rem;
+    }
+    .insight-item {
+      padding: 1.5rem;
+      background: white;
+      border-radius: 2px;
+      transition: background 0.2s;
+    }
+    .insight-item:hover { background: #f3efea; }
+    .insight-item small { color: var(--accent); font-weight: 600; }
+
+    /* contact + gamified fun fact */
+    .contact-section {
+      background: var(--bg-dark);
+      color: var(--text-light);
+      padding: 3.5rem 2rem;
+      margin-top: 4rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 2px;
+    }
+    .fact-card {
+      background: rgba(255,255,255,0.05);
+      padding: 1.5rem;
+      border: 1px dashed var(--accent-light);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .fact-card i { font-size: 2.5rem; color: var(--accent-light); }
+    .contact-info a {
+      color: white;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+
+    /* mobile & responsiveness */
+    @media (max-width: 768px) {
+      .split-header { flex-direction: column; }
+      .intro-panel { padding: 2rem; }
+      .brand-panel { min-height: 50vh; }
+      .hero-scroll-hint { display: none; }
+    }
+
+    /* footer */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: var(--bg-dark);
+      color: #ccc;
+      border-top: 1px solid #2a2f38;
+    }
+    footer a { color: var(--accent-light); }
+
+    /* accessibility outline */
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  </style>
+</head>
+<body>
+  <!-- split screen hero (memorable) -->
+  <header class="split-header">
+    <div class="brand-panel">
+      <div class="logo">E<span>lena</span> V<span>oss</span> · e</div>
+      <div class="brand-quote">
+        build stories, <br>not just startups.
+        <small>— entrepreneur since 2012</small>
+      </div>
+      <div class="hero-scroll-hint">
+        <i class="fas fa-arrow-down"></i> <span>scroll</span>
+      </div>
+    </div>
+    <div class="intro-panel">
+      <span class="greeting">hello world</span>
+      <h1 class="intro-name">Elena Voss</h1>
+      <ul class="intro-tags">
+        <li>serial founder</li>
+        <li>product strategist</li>
+        <li>angel investor</li>
+        <li>design-driven</li>
+      </ul>
+      <p style="max-width: 45ch; color: #2c2e33; margin-bottom: 2.5rem;">Turning complex ideas into scalable ventures. I’ve launched 3 category‑defining startups, raised $14M+, and mentored 50+ founders. </p>
+      <a href="#contact" class="cta-button">Let’s collaborate <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- about me + scrolling storyline -->
+    <section id="about">
+      <h2 class="section-head"><i class="fas fa-compass"></i> About / story</h2>
+      <div class="story-grid">
+        <div class="story-text">
+          <p style="font-size: 1.4rem; font-family: var(--font-serif);">From a tiny studio to leading remote teams across 3 continents — my journey is anything but linear.</p>
+          <p style="margin: 1.5rem 0;">I believe entrepreneurship is craft: empathy, iteration, and resilience. Every venture taught me that the best products emerge from deep user obsession. Today I split my time between advising climate-tech startups and building my new no‑code studio.</p>
+        </div>
+        <div class="story-highlight">
+          <h3><i class="fas fa-timeline" style="margin-right: 0.5rem;"></i>rolling timeline</h3>
+          <div class="scroll-timeline">
+            <div class="timeline-item"><span class="year">2016</span> first exit (sold to Unicorn)</div>
+            <div class="timeline-item"><span class="year">2018</span> founded Lumos — $4M series A</div>
+            <div class="timeline-item"><span class="year">2021</span> 2x founder; 40 under 40 list</div>
+            <div class="timeline-item"><span class="year">2024</span> launched Voss Studio ⚡</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- services / skills -->
+    <section id="skills">
+      <h2 class="section-head"><i class="fas fa-code"></i> core expertise</h2>
+      <div class="service-grid">
+        <div class="service-card"><i class="fas fa-rocket"></i><h3>venture building</h3><p>0→1 product & growth</p></div>
+        <div class="service-card"><i class="fas fa-chart-line"></i><h3>strategic pivot</h3><p>turnaround & scaling</p></div>
+        <div class="service-card"><i class="fas fa-pen-fancy"></i><h3>brand narrative</h3><p>story-driven positioning</p></div>
+        <div class="service-card"><i class="fas fa-handshake"></i><h3>angel syndicate</h3><p>early stage funding</p></div>
+      </div>
+    </section>
+
+    <!-- interactive project filter + cards -->
+    <section id="projects">
+      <h2 class="section-head"><i class="fas fa-bolt"></i> projects & case studies</h2>
+      <div class="filter-bar" id="filterBar">
+        <button class="filter-btn active" data-filter="all">all</button>
+        <button class="filter-btn" data-filter="tech">tech</button>
+        <button class="filter-btn" data-filter="creative">creative</button>
+        <button class="filter-btn" data-filter="impact">impact</button>
+      </div>
+
+      <div class="project-grid" id="projectGrid">
+        <div class="project-card" data-category="tech">
+          <i class="fas fa-microchip project-icon"></i>
+          <span class="project-tag">tech / iot</span>
+          <h3>Lumos sense</h3>
+          <p>Smart agriculture sensors – reduced water waste by 37%.</p>
+          <a href="#" class="demo-link">live demo <i class="fas fa-arrow-up-right-from-squares"></i></a>
+        </div>
+        <div class="project-card" data-category="creative">
+          <i class="fas fa-paint-brush project-icon"></i>
+          <span class="project-tag">creative / studio</span>
+          <h3>Brand alchemy</h3>
+          <p>Rebranded 8 D2C startups, avg. 2.4x conversion lift.</p>
+          <a href="#" class="demo-link">case study →</a>
+        </div>
+        <div class="project-card" data-category="impact">
+          <i class="fas fa-leaf project-icon"></i>
+          <span class="project-tag">impact / climate</span>
+          <h3>re:forest</h3>
+          <p>Marketplace for reforestation credits – 20k tonnes offset.</p>
+          <a href="#" class="demo-link">live impact</a>
+        </div>
+        <div class="project-card" data-category="tech">
+          <i class="fas fa-robot project-icon"></i>
+          <span class="project-tag">tech / AI</span>
+          <h3>pitch AI</h3>
+          <p>Co-founder for early stage decks (NLP + data).</p>
+          <a href="#" class="demo-link">prototype</a>
+        </div>
+        <div class="project-card" data-category="creative">
+          <i class="fas fa-cubes project-icon"></i>
+          <span class="project-tag">creative / nft</span>
+          <h3>onchain stories</h3>
+          <p>Web3 narrative experiment – 2k minters.</p>
+          <a href="#" class="demo-link">live demo</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- testimonials -->
+    <section id="testimonials">
+      <h2 class="section-head"><i class="fas fa-comment-dots"></i> kind words</h2>
+      <div class="testimonial-grid">
+        <div class="testi-card"><i class="fas fa-quote-right"></i><p>Elena doesn’t just build companies, she builds movements. Her strategic clarity is unmatched.</p><strong>— M. Kane, partner at VC</strong></div>
+        <div class="testi-card"><i class="fas fa-quote-right"></i><p>She turned our chaotic idea into a million‑dollar pipeline in 11 months. Brilliant.</p><strong>— J. Liu, founder Lumos</strong></div>
+        <div class="testi-card"><i class="fas fa-quote-right"></i><p>The best mentor I’ve had – brutally honest, endlessly supportive.</p><strong>— S. Verma, creator</strong></div>
+      </div>
+    </section>
+
+    <!-- blog/insights optional -->
+    <section id="insights">
+      <h2 class="section-head"><i class="fas fa-newspaper"></i> insights</h2>
+      <div class="insight-grid">
+        <div class="insight-item"><small>apr 2025</small><h4>pivot or perish?</h4><p>why narrative matters more than data in early stage.</p></div>
+        <div class="insight-item"><small>feb 2025</small><h4>angel diaries</h4><p>3 red flags I ignore (and 3 I never do).</p></div>
+        <div class="insight-item"><small>dec 2024</small><h4>build in public</h4><p>lessons from 100 days of no-code.</p></div>
+      </div>
+    </section>
+
+    <!-- contact area with gamified fun fact (interactive element) -->
+    <section id="contact">
+      <div class="contact-section">
+        <div>
+          <h2 style="font-family: var(--font-serif); font-size: 2.3rem; font-weight: 300;">ready to create?</h2>
+          <p style="margin: 1rem 0 2rem;"><i class="fas fa-envelope" style="margin-right: 0.5rem;"></i> elena@voss.ventures  ·  <i class="fas fa-phone-alt"></i> +1 (415) 867‑5309</p>
+          <div class="fact-card">
+            <i class="fas fa-dice-d6"></i>
+            <div><span style="font-weight: 600;">founder fact: </span> I've run 3 ultramarathons & built a SaaS during one of them 🏃‍♀️💻</div>
+          </div>
+        </div>
+        <a href="#" class="cta-button" style="background: white; color: var(--bg-dark); border: none;">book a discovery call <i class="fas fa-calendar"></i></a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Elena Voss – entrepreneurial portfolio.  Built with <i class="fas fa-heart" style="color: var(--accent);"></i>  and interactive minimalism.</p>
+    <p style="margin-top: 1rem; font-size: 0.9rem;"><a href="#">instagram</a> · <a href="#">linkedin</a> · <a href="#">x</a></p>
+  </footer>
+
+  <!-- project filter javascript (interactive) -->
+  <script>
+    (function() {
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      const projects = document.querySelectorAll('.project-card');
+
+      function filterProjects(category) {
+        projects.forEach(project => {
+          const projCat = project.getAttribute('data-category');
+          if (category === 'all' || projCat === category) {
+            project.classList.remove('hidden');
+          } else {
+            project.classList.add('hidden');
+          }
+        });
+      }
+
+      filterButtons.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          filterButtons.forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+          const filterValue = this.getAttribute('data-filter');
+          filterProjects(filterValue);
+        });
+      });
+      // initial active (all)
+      filterProjects('all');
+    })();
+  </script>
+
+  <!-- simulate smooth scroll and hover animations already in css -->
+  <!-- optional live demo popup: just placeholders, but design matches -->
+</body>
+</html>
